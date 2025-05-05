@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Biography from "./pages/Biography";
 import Experience from "./pages/Experience";
 import Booking from "./pages/Booking";
+import VirtualClasses from "./pages/VirtualClasses";
 import AccessRequest from "./pages/AccessRequest";
 import RequestConfirmation from "./pages/RequestConfirmation";
 import Login from "./pages/Login";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/biography" element={<Biography />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/virtual-classes" element={<VirtualClasses />} />
             <Route path="/access-request" element={<AccessRequest />} />
             <Route path="/request-confirmation" element={<RequestConfirmation />} />
             <Route path="/login" element={<Login />} />

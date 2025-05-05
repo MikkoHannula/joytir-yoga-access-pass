@@ -28,6 +28,7 @@ const Header = () => {
           <Link to="/" className="text-foreground/80 hover:text-foreground transition-colors">Home</Link>
           <Link to="/biography" className="text-foreground/80 hover:text-foreground transition-colors">Biography</Link>
           <Link to="/experience" className="text-foreground/80 hover:text-foreground transition-colors">Experience</Link>
+          <Link to="/virtual-classes" className="text-foreground/80 hover:text-foreground transition-colors">Virtual Classes</Link>
           <Link to="/booking" className="text-foreground/80 hover:text-foreground transition-colors">Booking</Link>
           <Link to="/access-request">
             <Button variant="outline" className="border-yoga-300 text-yoga-500 hover:bg-yoga-100">
@@ -56,6 +57,7 @@ const Header = () => {
             <Link to="/" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Home</Link>
             <Link to="/biography" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Biography</Link>
             <Link to="/experience" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Experience</Link>
+            <Link to="/virtual-classes" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Virtual Classes</Link>
             <Link to="/booking" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Booking</Link>
             <Link to="/access-request" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Request Access</Link>
             <Link to="/login" className="py-2 hover:text-yoga-500" onClick={toggleMenu}>Login</Link>
