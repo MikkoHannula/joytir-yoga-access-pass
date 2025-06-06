@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const Biography = () => {
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative py-20 bg-yoga-100">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
@@ -12,14 +12,14 @@ const Biography = () => {
               About Camille Cussaguet
             </h1>
             <p className="text-lg text-muted-foreground">
-              Yoga instructor, wellness advocate, and lifelong student of mindfulness
+              Yoga instructor and lifelong student
             </p>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Biography Content */}
+      {/* Biography sisältö */}
       <section className="py-16 bg-white">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -46,7 +46,7 @@ const Biography = () => {
                     <CardContent className="pt-6">
                       <h3 className="text-xl font-serif font-medium mb-2">Teaching Style</h3>
                       <p className="text-muted-foreground">
-                        Mindful, accessible, and adaptable to all skill levels with a focus on proper alignment and breathing techniques.
+                        Accessible, and adaptable to all skill levels with a focus on proper alignment and breathing techniques.
                       </p>
                     </CardContent>
                   </Card>
@@ -58,36 +58,33 @@ const Biography = () => {
               <div>
                 <h2 className="text-2xl font-serif font-medium mb-4">My Journey</h2>
                 <p className="text-muted-foreground mb-4">
-                  Camille's journey into yoga began over 15 years ago when she was seeking balance in her high-stress corporate career. What started as a physical practice quickly evolved into a profound spiritual and philosophical exploration that transformed her life path.
+                  Camille's journey into yoga began over 10 years ago when she was seeking balance in her high-stress corporate career. What started as a physical practice quickly evolved into a profound appreciation that brought her to do her Yoga instructor training in India.
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  After experiencing the transformative power of yoga firsthand, Camille left her corporate job to pursue yoga full-time, studying with renowned teachers across India, Thailand, and Europe. Her training encompasses various styles including Hatha, Vinyasa, Yin, and Restorative yoga.
+                  After experiencing the benefits of yoga firsthand, Camille left her corporate job to pursue a yoga retreat and instructor training, studying with renowned teachers in India. Her training encompasses Hatha and Vinyasa yoga.
                 </p>
                 <p className="text-muted-foreground">
-                  In 2013, she founded Joytir Yoga with the mission of making yoga accessible to people from all walks of life while honoring the practice's ancient roots and wisdom.
+                  In 2025, she founded Joytir Yoga to give classes on the side of her full time job. accessible to people from all walks of life while honoring the practice's teachings.
                 </p>
               </div>
               
               <div>
                 <h2 className="text-2xl font-serif font-medium mb-4">Philosophy & Approach</h2>
                 <p className="text-muted-foreground mb-4">
-                  Camille believes that yoga is for everybody and every body. Her classes emphasize mindful movement, proper alignment, and the connection between breath and movement. She creates a supportive environment where students can explore their practice safely and at their own pace.
+                  Camille believes that yoga is for everybody and every body. Her classes emphasize mindful movement, proper alignment, and the connection between breath and movement. She creates a supportive and care free environment where students can explore their practice safely and at their own pace.
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  Rather than focusing solely on achieving advanced poses, Camille encourages students to develop awareness, presence, and compassion both on and off the mat. She integrates meditation, pranayama (breathwork), and yogic philosophy into her teaching to provide a holistic experience.
+                  Rather than focusing solely on achieving advanced poses, Camille encourages students to develop awareness, presence, and compassion both on and off the mat. She integrates meditation and pranayama (breathwork),into her teaching to provide a full experience.
                 </p>
                 <p className="text-muted-foreground">
-                  Her approach is both traditional and contemporary, honoring yoga's ancient wisdom while making it relevant to modern life challenges.
+                  Her approach is both traditional and contemporary, honoring yoga's teachings while making it relevant to modern life challenges.
                 </p>
               </div>
               
               <div>
                 <h2 className="text-2xl font-serif font-medium mb-4">Beyond the Mat</h2>
                 <p className="text-muted-foreground mb-4">
-                  When not teaching, Camille continues to deepen her own practice through ongoing education and personal study. She is passionate about wellness, sustainable living, and community service.
-                </p>
-                <p className="text-muted-foreground mb-4">
-                  Camille regularly volunteers to teach yoga in underserved communities and participates in humanitarian initiatives. She believes in yoga as a tool for social change and personal empowerment.
+                  When not teaching, Camille continues to deepen her own practice through regular practice. She is passionate about wellbeing and sustainable living.
                 </p>
                 <p className="text-muted-foreground">
                   An avid traveler, nature lover, and lifelong learner, Camille brings a wealth of diverse experiences and perspectives to her teaching.

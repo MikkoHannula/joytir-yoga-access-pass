@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
@@ -6,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
-// Sample class data
+// Esimerkkiluokkien tiedot
 const yogaClasses = [
   {
     id: 1,
@@ -55,6 +54,7 @@ const Booking = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [bookedClasses, setBookedClasses] = useState<number[]>([]);
   
+  // Käsittelee varauslogiikka
   const handleBookClass = (classId: number) => {
     if (bookedClasses.includes(classId)) {
       setBookedClasses(bookedClasses.filter(id => id !== classId));

@@ -121,7 +121,7 @@ const AccessRequest = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email Address</FormLabel>
+                          <FormLabel>Work Email Address</FormLabel>
                           <FormControl>
                             <Input placeholder="Your email" type="email" {...field} />
                           </FormControl>
@@ -175,7 +175,7 @@ const AccessRequest = () => {
                     name="reason"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Why do you want to join Joytir Yoga?</FormLabel>
+                        <FormLabel>Why do you want to practice yoga?</FormLabel>
                         <FormControl>
                           <Textarea 
                             placeholder="Tell us about your yoga journey and what you hope to gain from Camille's classes..." 

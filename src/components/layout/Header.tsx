@@ -23,7 +23,7 @@ const Header = () => {
           </Link>
         </div>
         
-        {/* Desktop Navigation */}
+        {/* Desktop Navigaatio */}
         <nav className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-foreground/80 hover:text-foreground transition-colors">Home</Link>
           <Link to="/biography" className="text-foreground/80 hover:text-foreground transition-colors">Biography</Link>
@@ -42,7 +42,7 @@ const Header = () => {
           </Link>
         </nav>
         
-        {/* Mobile Menu Button */}
+        {/* Mobiili Menu Nappi */}
         <div className="md:hidden">
           <Button variant="ghost" className="h-9 w-9 p-0" onClick={toggleMenu}>
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -50,7 +50,7 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Mobile Menu */}
+      {/* Mobiili Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-background border-b">
           <nav className="container py-4 flex flex-col gap-4">

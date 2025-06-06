@@ -1,4 +1,4 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+// Päivitä tämä sivu (sisältö on vain varalla, jos et voi päivittää sivua)
 
 const Index = () => {
   return (

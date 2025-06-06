@@ -58,7 +58,7 @@ const Home = () => {
               <p className="text-muted-foreground mb-6">
                 Camille Cussaguet is a certified yoga instructor with over 10 years of experience, 
                 specializing in Hatha, Vinyasa, and Restorative yoga. Her approach combines traditional 
-                yoga philosophy with modern wellness practices.
+                yoga philosophy with a joyful ambience.
               </p>
               <Link to="/biography">
                 <Button variant="link" className="text-yoga-500 p-0 hover:text-yoga-600">
@@ -77,7 +77,7 @@ const Home = () => {
             <h6 className="text-yoga-700 font-medium mb-2">Experience & Certifications</h6>
             <h2 className="text-3xl font-serif font-medium mb-4">Years of Dedicated Practice</h2>
             <p className="text-yoga-900">
-              Discover Camille's journey through yoga, from her early training to her specialized certifications.
+              Discover Camille's journey through yoga.
             </p>
           </div>
           
@@ -91,7 +91,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-serif font-medium mb-2">Certified Trainer</h3>
                 <p className="text-muted-foreground mb-4">
-                  Registered Yoga Teacher (RYT-500) with Yoga Alliance, trained in India and France.
+                  Registered Yoga Teacher (RYT-500) with Yoga Alliance, trained in India.
                 </p>
               </CardContent>
             </Card>
@@ -106,7 +106,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-serif font-medium mb-2">10+ Years Experience</h3>
                 <p className="text-muted-foreground mb-4">
-                  A decade of teaching experience across various studios and retreat centers.
+                  A decade of teaching experience across various countries and centers.
                 </p>
               </CardContent>
             </Card>

@@ -24,6 +24,7 @@ const actionTypes = {
 
 let count = 0
 
+// Tämä funktio luo ainutlaatuisen id:n
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER
   return count.toString()
@@ -49,6 +50,7 @@ type Action =
       toastId?: ToasterToast["id"]
     }
 
+// Tämä on toastin tila
 interface State {
   toasts: ToasterToast[]
 }
@@ -90,8 +92,7 @@ export const reducer = (state: State, action: Action): State => {
     case "DISMISS_TOAST": {
       const { toastId } = action
 
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
+      // Jos toastId on määritelty, lisätään se poistettavien jonoon 
       if (toastId) {
         addToRemoveQueue(toastId)
       } else {
@@ -130,6 +131,7 @@ const listeners: Array<(state: State) => void> = []
 
 let memoryState: State = { toasts: [] }
 
+// Tämä funktio päivittää toastin tilan
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action)
   listeners.forEach((listener) => {
@@ -139,6 +141,7 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">
 
+// Tämä funktio luo uuden toastin
 function toast({ ...props }: Toast) {
   const id = genId()
 
@@ -168,6 +171,7 @@ function toast({ ...props }: Toast) {
   }
 }
 
+// Tämä hook palauttaa toastin ja dismiss-funktion
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 

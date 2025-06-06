@@ -1,4 +1,5 @@
 {
+  // Tämä tiedosto määrittelee projektin tyypitykset ja polut
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
