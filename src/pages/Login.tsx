@@ -81,10 +81,10 @@ const Login = () => {
         <div className="max-w-md mx-auto">
           <Card>
             <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl font-serif text-center">
+              <CardTitle className="text-2xl font-serif text-center text-emerald-400">
                 Welcome back
               </CardTitle>
-              <CardDescription className="text-center">
+              <CardDescription className="text-center text-emerald-400">
                 Enter your credentials to access your account
               </CardDescription>
             </CardHeader>

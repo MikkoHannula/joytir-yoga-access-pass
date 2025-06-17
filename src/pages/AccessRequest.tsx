@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -82,7 +81,7 @@ const AccessRequest = () => {
       <div className="container">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-serif font-medium mb-4">
+            <h1 className="text-3xl md:text-4xl font-serif font-medium mb-4 text-emerald-400">
               Request Access
             </h1>
             <p className="text-muted-foreground">
@@ -93,7 +92,7 @@ const AccessRequest = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle>Membership Access Request</CardTitle>
+              <CardTitle className="text-xl font-serif font-medium text-emerald-400">Membership Access Request</CardTitle>
               <CardDescription>
                 All fields are required. You'll receive a response within 48 hours.
               </CardDescription>

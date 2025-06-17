@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Play, Lock, Eye } from "lucide-react";
@@ -106,8 +105,8 @@ const VirtualClasses = () => {
     <div className="py-12 md:py-20 bg-gradient-to-b from-white to-purple-50">
       <div className="container">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-serif font-medium mb-4">
-            Virtual Yoga Classes
+          <h1 className="text-3xl md:text-5xl font-serif font-medium mb-4 text-emerald-400">
+            Virtual Classes
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore Camille's virtual yoga classes. Start with our free class, and 
@@ -117,7 +116,7 @@ const VirtualClasses = () => {
 
         {/* Featured Free Class */}
         <div className="mb-12">
-          <h2 className="text-2xl font-serif mb-6">Free Sample Class</h2>
+          <h2 className="text-2xl font-serif font-medium mb-4 text-emerald-400">Free Sample Class</h2>
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {classVideos.filter(video => video.isFree).map(video => (
               <div key={video.id} className="md:flex">

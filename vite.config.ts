@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // Tämä tiedosto määrittelee Vite-konfiguraation
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: "localhost", // Vaihdettu localhostiin, jotta toimii paikallisesti
     port: 8080,
   },
   plugins: [
