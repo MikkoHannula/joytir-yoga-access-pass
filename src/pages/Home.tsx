@@ -4,6 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useCallback } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// Home.tsx
+// -------------------
+// Main landing page for Joytir Yoga.
+// - All visible text is bilingual and switches with the global language context.
+// - To update hero, about, or experience sections, edit the translations object.
+// - For navigation, see Header.tsx.
+//
+// To add new sections, follow the structure below and add translations for both languages.
+
 const translations = {
   en: {
     heroTitle: 'Find Your Inner Balance with Joytir Yoga',

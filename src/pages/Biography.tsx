@@ -1,3 +1,11 @@
+// Biography.tsx
+// -------------------
+// Camille's biography page.
+// - All visible text is bilingual and switches with the global language context.
+// - To update biography content, edit the translations object.
+//
+// For navigation, see Header.tsx.
+
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 

@@ -1,3 +1,11 @@
+// Login.tsx
+// -------------------
+// User login page for Joytir Yoga.
+// - All visible text is bilingual and switches with the global language context.
+// - To update login form fields or messages, edit the translations object.
+//
+// For navigation, see Header.tsx.
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -1,8 +1,22 @@
+// RequestConfirmation.tsx
+// -------------------
+// Confirmation page after a user submits an access request.
+// - All visible text is bilingual and switches with the global language context.
+// - To update confirmation steps, edit the 'steps' array in the translations object.
+// - To change button destinations or labels, see the <Link> and <Button> components at the bottom.
+//
+// For navigation, see Header.tsx.
+//
+// To add more languages, extend the translations object and update LanguageContext if needed.
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// --- TRANSLATIONS ---
+// All visible text for this page is defined here for both English and French.
+// To add or update text, modify the appropriate language object.
 const translations = {
   en: {
     title: "Request Sent Successfully",
@@ -30,6 +44,8 @@ const translations = {
   }
 };
 
+// --- MAIN COMPONENT ---
+// This component renders the confirmation UI. It uses the global language context.
 const RequestConfirmation = () => {
   const { language } = useLanguage();
   const t = translations[language] || translations.en;
@@ -37,17 +53,20 @@ const RequestConfirmation = () => {
     <div className="py-20 bg-yoga-50">
       <div className="container">
         <div className="max-w-2xl mx-auto text-center">
+          {/* Success Icon */}
           <div className="mb-6 flex justify-center">
             <div className="w-20 h-20 bg-yoga-100 rounded-full flex items-center justify-center">
               <CheckCircle className="h-10 w-10 text-yoga-500" />
             </div>
           </div>
+          {/* Title and Thank You Message */}
           <h1 className="text-3xl md:text-4xl font-serif font-medium mb-4 text-emerald-400">
             {t.title}
           </h1>
           <p className="text-lg text-muted-foreground mb-6">
             {t.thanks}
           </p>
+          {/* Steps Section */}
           <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
             <h2 className="text-xl font-medium mb-3 text-emerald-400">{t.next}</h2>
             <ol className="text-left space-y-3">
@@ -59,12 +78,15 @@ const RequestConfirmation = () => {
               ))}
             </ol>
           </div>
+          {/* Navigation Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
+            {/* Back to Home Button */}
             <Link to="/">
               <Button variant="outline" className="border-yoga-300 text-yoga-500 hover:bg-yoga-100">
                 {t.backHome}
               </Button>
             </Link>
+            {/* About Camille Button */}
             <Link to="/biography">
               <Button className="bg-yoga-500 hover:bg-yoga-600">
                 {t.aboutCamille}
@@ -77,4 +99,5 @@ const RequestConfirmation = () => {
   );
 };
 
+// --- EXPORT ---
 export default RequestConfirmation;

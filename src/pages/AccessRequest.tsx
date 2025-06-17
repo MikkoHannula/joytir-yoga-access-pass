@@ -1,3 +1,11 @@
+// AccessRequest.tsx
+// -------------------
+// Page for users to request access to exclusive classes.
+// - Form labels, validation, and messages bilingual.
+//
+//
+// For navigation, see Header.tsx.
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";

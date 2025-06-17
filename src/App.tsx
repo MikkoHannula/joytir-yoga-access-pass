@@ -1,3 +1,12 @@
+// App.tsx
+// -------------------
+// Main application entry point. Sets up routing and global providers.
+// - Wraps the app in LanguageProvider for bilingual support.
+// - Defines all main routes for the site.
+// - To add or remove pages, update the <Routes> section.
+//
+// For layout and navigation, see Header.tsx and Footer.tsx.
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";

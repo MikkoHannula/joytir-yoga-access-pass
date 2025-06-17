@@ -1,3 +1,17 @@
+/*
+  index.css
+  -------------------
+  This file contains all global styles for the Joytir Yoga website.
+  - Uses Tailwind CSS for utility classes and custom theming.
+  - Custom properties (CSS variables) define the color palette and layout for both light and dark modes.
+  - Responsive container and section padding classes are defined for layout consistency.
+  - Utility classes for grid, flex, and text alignment are included for easy layout management.
+  - To change the color theme, update the :root and .dark variable blocks.
+  - To adjust container widths or breakpoints, edit the @media queries for .container.
+  - To add or modify custom utility classes, use @layer base and add your styles below.
+  - All images and videos are set to be responsive by default.
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
@@ -6,6 +20,7 @@
 
 @layer base {
   :root {
+    /* Light mode color palette and layout variables */
     --background: 260 43% 97%;
     --foreground: 186 100% 18%; /* Joyful greenish-blue */
 
@@ -47,6 +62,7 @@
   }
 
   .dark {
+    /* Dark mode color palette and layout variables */
     --background: 260 15% 10%;
     --foreground: 260 10% 95%;
 
@@ -87,6 +103,12 @@
 }
 
 @layer base {
+  /*
+    Global element resets and base styles
+    - All elements use border color from theme
+    - Body uses background and text color from theme
+    - Headings use serif font
+  */
   * {
     @apply border-border;
   }
@@ -99,6 +121,11 @@
     @apply font-serif;
   }
 
+  /*
+    Responsive container class
+    - Sets max-width at various breakpoints
+    - Use .container on main layout wrappers
+  */
   .container {
     width: 100%;
     margin-left: auto;
@@ -134,12 +161,21 @@
     }
   }
 
+  /*
+    Responsive image and video styles
+    - Ensures all media is fluid and never overflows its container
+  */
   img, video {
     max-width: 100%;
     height: auto;
     display: block;
   }
 
+  /*
+    Yoga card component styles
+    - class and content cards throughout the site
+    - hover effect for elevation
+  */
   .yoga-card {
     background-color: #fff;
     border-radius: 0.75rem;
@@ -155,6 +191,11 @@
     box-shadow: 0 4px 16px 0 rgba(85,60,154,0.16), 0 3px 12px 0 rgba(85,60,154,0.12);
   }
 
+  /*
+    Section padding utility
+    - Use .section-padding for vertical spacing
+    - Responsive adjustments for mobile
+  */
   .section-padding {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -181,6 +222,10 @@
     }
   }
 
+  /*
+    Grid and flex utilities
+    - layout structure in pages and components
+  */
   .grid {
     display: grid;
     gap: 1.5rem;
@@ -225,6 +270,10 @@
   }
 }
 
+/*
+  Utility class for muted foreground text
+  - Use .text-muted-foreground for secondary text
+*/
 .text-muted-foreground {
   color: hsl(var(--foreground) / 0.7);
 }

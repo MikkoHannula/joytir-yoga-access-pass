@@ -1,3 +1,11 @@
+// Experience.tsx
+// -------------------
+// Camille's experience and certifications page.
+// - All visible text is bilingual and switches with the global language context.
+// - To update experience or certifications, edit the translations object.
+//
+// For navigation, see Header.tsx.
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/contexts/LanguageContext";

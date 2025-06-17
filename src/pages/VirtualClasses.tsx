@@ -1,3 +1,12 @@
+// VirtualClasses.tsx
+// -------------------
+// Virtual yoga classes page (currently disabled in navigation).
+// - All visible text and class data is bilingual and switches with the global language context.
+//
+// - To re-enable, uncomment the export and navigation links in index.ts, Header.tsx, and Footer.tsx.
+//
+// For navigation, see Header.tsx.
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Play, Lock, Eye } from "lucide-react";
@@ -153,14 +162,6 @@ const VirtualClasses = () => {
                     alt={video.title} 
                     className="w-full h-64 md:h-96 object-cover"
                   />
-                  <button 
-                    onClick={() => handlePlayVideo(video)}
-                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-all"
-                  >
-                    <div className="bg-white bg-opacity-90 rounded-full p-4">
-                      <Play className="h-8 w-8 text-purple-600" />
-                    </div>
-                  </button>
                 </div>
                 <div className="p-6 md:w-1/3">
                   <div className="uppercase tracking-wide text-sm text-purple-600 font-semibold">

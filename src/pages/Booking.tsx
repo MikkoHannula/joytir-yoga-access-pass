@@ -1,7 +1,23 @@
+// Booking.tsx
+// -------------------
+// Yoga class booking page (currently disabled in navigation).
+// - All visible text and class data is bilingual and switches with the global language context.
+// - To update class info, edit the translations object.
+// - To re-enable, uncomment the export and navigation links in index.ts, Header.tsx, and Footer.tsx.
+//
+// For navigation, see Header.tsx.
+
 import { useState } from "react";
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
