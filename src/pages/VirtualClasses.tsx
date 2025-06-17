@@ -17,6 +17,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ClassVideo {
   id: string;
@@ -78,10 +79,37 @@ const classVideos: ClassVideo[] = [
   }
 ];
 
+const translations = {
+  en: {
+    title: "Virtual Classes",
+    subtitle: "Explore Camille's virtual yoga classes. Start with our free class, and request access to unlock the full library of premium content.",
+    featured: "Featured Free Class",
+    premium: "Premium Classes",
+    preview: "Preview",
+    watchNow: "Watch Now",
+    requestAccess: "Request Access",
+    accessRequired: "Access Required",
+    accessRequiredDesc: "You need to request access to view this premium class."
+  },
+  fr: {
+    title: "Cours virtuels",
+    subtitle: "Découvrez les cours de yoga virtuels de Camille. Commencez par notre cours gratuit, puis demandez l'accès pour débloquer toute la bibliothèque de contenus premium.",
+    featured: "Cours gratuit à la une",
+    premium: "Cours premium",
+    preview: "Aperçu",
+    watchNow: "Regarder maintenant",
+    requestAccess: "Demander l'accès",
+    accessRequired: "Accès requis",
+    accessRequiredDesc: "Vous devez demander l'accès pour voir ce cours premium."
+  }
+};
+
 const VirtualClasses = () => {
   const { toast } = useToast();
   const [selectedVideo, setSelectedVideo] = useState<ClassVideo | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
 
   const handlePlayVideo = (video: ClassVideo) => {
     if (video.isFree) {
@@ -89,8 +117,8 @@ const VirtualClasses = () => {
       setIsDialogOpen(true);
     } else {
       toast({
-        title: "Access Required",
-        description: "You need to request access to view this premium class.",
+        title: t.accessRequired,
+        description: t.accessRequiredDesc,
         variant: "default",
       });
     }
@@ -106,17 +134,16 @@ const VirtualClasses = () => {
       <div className="container">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-5xl font-serif font-medium mb-4 text-emerald-400">
-            Virtual Classes
+            {t.title}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore Camille's virtual yoga classes. Start with our free class, and 
-            request access to unlock the full library of premium content.
+            {t.subtitle}
           </p>
         </div>
 
         {/* Featured Free Class */}
         <div className="mb-12">
-          <h2 className="text-2xl font-serif font-medium mb-4 text-emerald-400">Free Sample Class</h2>
+          <h2 className="text-2xl font-serif font-medium mb-4 text-emerald-400">{t.featured}</h2>
           <div className="bg-white rounded-xl shadow-md overflow-hidden">
             {classVideos.filter(video => video.isFree).map(video => (
               <div key={video.id} className="md:flex">
@@ -149,7 +176,7 @@ const VirtualClasses = () => {
                     className="mt-4 bg-purple-600 hover:bg-purple-700"
                     onClick={() => handlePlayVideo(video)}
                   >
-                    <Play className="mr-2 h-4 w-4" /> Watch Now
+                    <Play className="mr-2 h-4 w-4" /> {t.watchNow}
                   </Button>
                 </div>
               </div>
@@ -160,10 +187,10 @@ const VirtualClasses = () => {
         {/* Premium Classes */}
         <div>
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-serif">Premium Classes</h2>
+            <h2 className="text-2xl font-serif">{t.premium}</h2>
             <Link to="/access-request">
               <Button variant="outline" className="border-purple-300 text-purple-600 hover:bg-purple-50">
-                <Lock className="mr-2 h-4 w-4" /> Request Access
+                <Lock className="mr-2 h-4 w-4" /> {t.requestAccess}
               </Button>
             </Link>
           </div>
@@ -192,7 +219,7 @@ const VirtualClasses = () => {
                 </CardContent>
                 <CardFooter>
                   <Button variant="ghost" className="w-full text-purple-600 hover:bg-purple-50 hover:text-purple-700" onClick={() => handlePlayVideo(video)}>
-                    <Eye className="mr-2 h-4 w-4" /> Preview
+                    <Eye className="mr-2 h-4 w-4" /> {t.preview}
                   </Button>
                 </CardFooter>
               </Card>

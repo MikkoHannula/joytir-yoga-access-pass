@@ -4,73 +4,174 @@ import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-// Esimerkkiluokkien tiedot
-const yogaClasses = [
-	{
-		id: 1,
-		title: "Morning Flow",
-		time: "7:00 AM - 8:15 AM",
-		instructor: "Camille Cussaguet",
-		level: "All Levels",
-		spots: 8,
-		maxSpots: 12,
-		description:
-			"Start your day with an energizing flow that will awaken your body and mind.",
+const translations = {
+	en: {
+		pageTitle: "Book a Class",
+		pageSubtitle:
+			"Select a date and class to reserve your spot. Classes are limited to ensure personalized attention for all students.",
+		selectDate: "Please select a date to view available classes.",
+		availableClasses: "Available Classes",
+		classFull: "Class Full",
+		cancelBooking: "Cancel Booking",
+		bookClass: "Book Class",
+		memberLogin: "Member Login",
+		requestAccess: "Request Access",
+		with: "with",
+		spots: "spots",
+		level: "Level",
+		time: "Time",
+		instructor: "Instructor",
+		booked: "Booked",
+		notBooked: "Not Booked",
+		bookingCancelledTitle: "Booking Cancelled",
+		bookingCancelledDesc: "You have cancelled your reservation for this class.",
+		bookingSuccessTitle: "Class Booked",
+		bookingSuccessDesc: "You have successfully booked this class!",
+		calendarTitle: "Select Date",
+		calendarDesc: "Choose a date to view available classes",
+		classes: [
+			{
+				id: 1,
+				title: "Morning Flow",
+				time: "7:00 AM - 8:15 AM",
+				instructor: "Camille Cussaguet",
+				level: "All Levels",
+				spots: 8,
+				maxSpots: 12,
+				description:
+					"Start your day with an energizing flow that will awaken your body and mind.",
+			},
+			{
+				id: 2,
+				title: "Gentle Hatha",
+				time: "10:30 AM - 11:45 AM",
+				instructor: "Camille Cussaguet",
+				level: "Beginner",
+				spots: 5,
+				maxSpots: 12,
+				description:
+					"A slower-paced class focusing on fundamental poses and proper alignment.",
+			},
+			{
+				id: 3,
+				title: "Power Vinyasa",
+				time: "5:30 PM - 6:45 PM",
+				instructor: "Camille Cussaguet",
+				level: "Intermediate/Advanced",
+				spots: 10,
+				maxSpots: 12,
+				description:
+					"A dynamic, flowing practice that builds strength, flexibility and focus.",
+			},
+			{
+				id: 4,
+				title: "Restorative Yoga",
+				time: "7:30 PM - 8:45 PM",
+				instructor: "Camille Cussaguet",
+				level: "All Levels",
+				spots: 3,
+				maxSpots: 10,
+				description:
+					"Unwind with gentle, supported poses designed to promote deep relaxation.",
+			},
+		],
 	},
-	{
-		id: 2,
-		title: "Gentle Hatha",
-		time: "10:30 AM - 11:45 AM",
-		instructor: "Camille Cussaguet",
-		level: "Beginner",
-		spots: 5,
-		maxSpots: 12,
-		description:
-			"A slower-paced class focusing on fundamental poses and proper alignment.",
+	fr: {
+		pageTitle: "Réserver un cours",
+		pageSubtitle:
+			"Sélectionnez une date et un cours pour réserver votre place. Les cours sont limités pour garantir une attention personnalisée à chaque élève.",
+		selectDate: "Veuillez sélectionner une date pour voir les cours disponibles.",
+		availableClasses: "Cours disponibles",
+		classFull: "Cours complet",
+		cancelBooking: "Annuler la réservation",
+		bookClass: "Réserver le cours",
+		memberLogin: "Connexion membre",
+		requestAccess: "Demander l'accès",
+		with: "avec",
+		spots: "places",
+		level: "Niveau",
+		time: "Heure",
+		instructor: "Instructeur",
+		booked: "Réservé",
+		notBooked: "Non réservé",
+		bookingCancelledTitle: "Réservation annulée",
+		bookingCancelledDesc: "Vous avez annulé votre réservation pour ce cours.",
+		bookingSuccessTitle: "Cours réservé",
+		bookingSuccessDesc: "Vous avez réservé ce cours avec succès !",
+		calendarTitle: "Sélectionner une date",
+		calendarDesc: "Choisissez une date pour voir les cours disponibles",
+		classes: [
+			{
+				id: 1,
+				title: "Flow du matin",
+				time: "7h00 - 8h15",
+				instructor: "Camille Cussaguet",
+				level: "Tous niveaux",
+				spots: 8,
+				maxSpots: 12,
+				description:
+					"Commencez la journée avec un flow énergisant pour réveiller le corps et l'esprit.",
+			},
+			{
+				id: 2,
+				title: "Hatha Doux",
+				time: "10h30 - 11h45",
+				instructor: "Camille Cussaguet",
+				level: "Débutant",
+				spots: 5,
+				maxSpots: 12,
+				description:
+					"Un cours au rythme lent axé sur les postures fondamentales et l'alignement.",
+			},
+			{
+				id: 3,
+				title: "Vinyasa Puissant",
+				time: "17h30 - 18h45",
+				instructor: "Camille Cussaguet",
+				level: "Intermédiaire/Avancé",
+				spots: 10,
+				maxSpots: 12,
+				description:
+					"Une pratique dynamique et fluide pour renforcer force, souplesse et concentration.",
+			},
+			{
+				id: 4,
+				title: "Yoga Restauratif",
+				time: "19h30 - 20h45",
+				instructor: "Camille Cussaguet",
+				level: "Tous niveaux",
+				spots: 3,
+				maxSpots: 10,
+				description:
+					"Détendez-vous avec des postures douces et soutenues pour une relaxation profonde.",
+			},
+		],
 	},
-	{
-		id: 3,
-		title: "Power Vinyasa",
-		time: "5:30 PM - 6:45 PM",
-		instructor: "Camille Cussaguet",
-		level: "Intermediate/Advanced",
-		spots: 10,
-		maxSpots: 12,
-		description:
-			"A dynamic, flowing practice that builds strength, flexibility and focus.",
-	},
-	{
-		id: 4,
-		title: "Restorative Yoga",
-		time: "7:30 PM - 8:45 PM",
-		instructor: "Camille Cussaguet",
-		level: "All Levels",
-		spots: 3,
-		maxSpots: 10,
-		description:
-			"Unwind with gentle, supported poses designed to promote deep relaxation.",
-	},
-];
+};
 
 const Booking = () => {
 	const { toast } = useToast();
+	const { language } = useLanguage();
+	const t = translations[language] || translations.en;
+	const yogaClasses = t.classes;
+
 	const [date, setDate] = useState<Date | undefined>(new Date());
 	const [bookedClasses, setBookedClasses] = useState<number[]>([]);
 
-	// Käsittelee varauslogiikka
 	const handleBookClass = (classId: number) => {
 		if (bookedClasses.includes(classId)) {
 			setBookedClasses(bookedClasses.filter((id) => id !== classId));
 			toast({
-				title: "Booking Cancelled",
-				description: "You have cancelled your reservation for this class.",
+				title: t.bookingCancelledTitle,
+				description: t.bookingCancelledDesc,
 			});
 		} else {
 			setBookedClasses([...bookedClasses, classId]);
 			toast({
-				title: "Class Booked",
-				description: "You have successfully booked this class!",
+				title: t.bookingSuccessTitle,
+				description: t.bookingSuccessDesc,
 			});
 		}
 	};
@@ -81,21 +182,18 @@ const Booking = () => {
 				<div className="max-w-6xl mx-auto">
 					<div className="text-center mb-10">
 						<h1 className="text-3xl md:text-5xl font-serif font-medium mb-4 text-emerald-400">
-							Book a Class
+							{t.pageTitle}
 						</h1>
 						<p className="text-muted-foreground max-w-2xl mx-auto">
-							Select a date and class to reserve your spot. Classes are limited to
-							ensure personalized attention for all students.
+							{t.pageSubtitle}
 						</p>
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 						<Card>
 							<CardHeader>
-								<CardTitle>Select Date</CardTitle>
-								<CardDescription>
-									Choose a date to view available classes
-								</CardDescription>
+								<CardTitle>{t.calendarTitle}</CardTitle>
+								<CardDescription>{t.calendarDesc}</CardDescription>
 							</CardHeader>
 							<CardContent>
 								<Calendar
@@ -109,17 +207,22 @@ const Booking = () => {
 								{date ? (
 									<p>
 										Showing classes for{" "}
-										{format(date, "EEEE, MMMM d, yyyy")}
+										{format(
+											date,
+											language === "fr"
+												? "EEEE d MMMM yyyy"
+												: "EEEE, MMMM d, yyyy"
+										)}
 									</p>
 								) : (
-									<p>Please select a date</p>
+									<p>{t.selectDate}</p>
 								)}
 							</CardFooter>
 						</Card>
 
 						<div className="md:col-span-2">
 							<h2 className="text-2xl font-serif font-medium mb-4 text-emerald-400">
-								Available Classes
+								{t.availableClasses}
 							</h2>
 
 							{date ? (
@@ -135,7 +238,7 @@ const Booking = () => {
 														{yogaClass.time}
 													</p>
 													<p className="text-sm text-muted-foreground mb-2">
-														with {yogaClass.instructor}
+														{t.with} {yogaClass.instructor}
 													</p>
 													<div className="flex items-center text-xs">
 														<span className="px-2 py-1 rounded-full bg-yoga-200 text-yoga-700">
@@ -162,7 +265,7 @@ const Booking = () => {
 															</div>
 															<span className="text-sm text-muted-foreground whitespace-nowrap">
 																{yogaClass.spots} /{" "}
-																{yogaClass.maxSpots} spots
+																{yogaClass.maxSpots} {t.spots}
 															</span>
 														</div>
 													</div>
@@ -187,10 +290,10 @@ const Booking = () => {
 														>
 															{yogaClass.spots === 0 &&
 															!bookedClasses.includes(yogaClass.id)
-																? "Class Full"
+																? t.classFull
 																: bookedClasses.includes(yogaClass.id)
-																? "Cancel Booking"
-																: "Book Class"}
+																? t.cancelBooking
+																: t.bookClass}
 														</Button>
 													</div>
 												</div>
@@ -201,7 +304,7 @@ const Booking = () => {
 							) : (
 								<Card>
 									<CardContent className="pt-6 text-center text-muted-foreground">
-										Please select a date to view available classes.
+										{t.selectDate}
 									</CardContent>
 								</Card>
 							)}

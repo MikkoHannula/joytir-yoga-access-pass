@@ -2,16 +2,52 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCallback } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+const translations = {
+  en: {
+    heroTitle: 'Find Your Inner Balance with Joytir Yoga',
+    heroSubtitle: "Join Camille on a journey to wellness through mindful yoga practice",
+    aboutHeadline: "About Camille",
+    aboutText: "Camille is a certified yoga instructor with over 8 years of experience, specializing in Hatha. Her approach combines traditional yoga philosophy with a joyful ambience.",
+    readFullBio: "Read Full Biography →",
+    yearsHeadline: "Years of Practice",
+    yearsText: "Discover my journey through yoga.",
+    certifiedTrainer: "Certified Trainer",
+    certifiedTrainerDesc: "Registered Yoga Teacher (IYT-500) with IndeaYoga, trained in India.",
+    experienceHeadline: "8+ Years Experience",
+    experienceDesc: "Teaching experiences across various countries and centers.",
+    expCertHeadline: "Experience & Certifications",
+    viewFullExperience: "View Full Experience",
+    footerSlogan: "Finding joy and peace through the practice of yoga.",
+  },
+  fr: {
+    heroTitle: 'Trouvez votre équilibre intérieur avec Joytir Yoga',
+    heroSubtitle: "Rejoignez Camille pour un voyage vers le bien-être à travers une pratique de yoga consciente.",
+    aboutHeadline: "À propos de Camille",
+    aboutText: "Camille est professeure de yoga certifiée avec plus de 8 ans d’expérience, spécialisée en Hatha. Son approche allie la philosophie traditionnelle du yoga à une ambiance joyeuse.",
+    readFullBio: "Lire la biographie complète →",
+    yearsHeadline: "Années de pratique",
+    yearsText: "Découvrez mon parcours à travers le yoga.",
+    certifiedTrainer: "Formatrice certifiée",
+    certifiedTrainerDesc: "Professeure de yoga diplômée (IYT-500) avec IndeaYoga, formée en Inde.",
+    experienceHeadline: "8+ ans d’expérience",
+    experienceDesc: "Expériences d’enseignement dans divers pays et centres.",
+    expCertHeadline: "Expérience & Certifications",
+    viewFullExperience: "Voir toute l’expérience",
+    footerSlogan: "Trouver la joie et la paix grâce à la pratique du yoga.",
+  }
+};
 
 const Home = () => {
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
   const handleViewFullExperience = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, []);
-
   const handleReadFullBiography = () => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
-
   return (
     <div>
       {/* Hero Section */}
@@ -28,20 +64,15 @@ const Home = () => {
         <div className="container relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4 text-emerald-400 drop-shadow-lg">
-              Find Your Inner <span className="text-sky-200">Balance</span> with <span className="text-emerald-100">Joytir Yoga</span>
+              {t.heroTitle}
             </h1>
             <p className="text-lg md:text-xl mb-8 text-sky-100 drop-shadow">
-              Join Camille on a journey to wellness through mindful yoga practice
+              {t.heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-4">
-              {/* <Link to="/access-request">
-                <Button className="bg-yoga-500 hover:bg-yoga-600 text-white px-6 py-2 rounded-md">
-                  Request Access
-                </Button>
-              </Link> */}
               <Link to="/biography">
                 <Button variant="outline" className="border-sky-300 text-sky-900 hover:bg-sky-200/80 hover:text-sky-900">
-                  Learn More
+                  {t.aboutHeadline}
                 </Button>
               </Link>
             </div>
@@ -62,16 +93,13 @@ const Home = () => {
               />
             </div>
             <div>
-              <h6 className="text-yoga-500 font-medium mb-2 text-emerald-400">About Camille</h6>
-              <h2 className="text-3xl font-serif font-medium mb-4 text-emerald-400">Dedicated Yoga Instructor</h2>
+              <h6 className="text-yoga-500 font-medium mb-2 text-emerald-400">{t.aboutHeadline}</h6>
               <p className="text-muted-foreground mb-6">
-                Camille is a certified yoga instructor with over 8 years of experience, 
-                specializing in Hatha. Her approach combines traditional 
-                yoga philosophy with a joyful ambience.
+                {t.aboutText}
               </p>
               <Link to="/biography" onClick={handleReadFullBiography}>
                 <Button variant="link" className="text-yoga-500 p-0 hover:text-yoga-600">
-                  Read Full Biography →
+                  {t.readFullBio}
                 </Button>
               </Link>
             </div>
@@ -79,17 +107,15 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Experience & Certifications Preview */}
+      {/* Years of Practice Section */}
       <section className="section-padding yoga-gradient">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h6 className="text-yoga-700 font-medium mb-2 text-emerald-400">Experience & Certifications</h6>
-            <h2 className="text-3xl font-serif font-medium mb-4 text-emerald-400">Years of Practice</h2>
+            <h2 className="text-3xl font-serif font-medium mb-4 text-emerald-400">{t.yearsHeadline}</h2>
             <p className="text-yoga-900">
-              Discover my journey through yoga.
+              {t.yearsText}
             </p>
           </div>
-          
           <div className="flex flex-col md:flex-row justify-center items-center gap-6">
             <Card className="yoga-card w-full md:w-96">
               <CardContent className="pt-6">
@@ -98,9 +124,9 @@ const Home = () => {
                     <path d="M12 2L5 12l7 10 7-10z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-serif font-medium mb-2">Certified Trainer</h3>
+                <h3 className="text-xl font-serif font-medium mb-2">{t.certifiedTrainer}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Registered Yoga Teacher (IYT-500) with IndeaYoga, trained in India.
+                  {t.certifiedTrainerDesc}
                 </p>
               </CardContent>
             </Card>
@@ -112,53 +138,22 @@ const Home = () => {
                     <path d="M12 6v6l4 2" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-serif font-medium mb-2">8+ Years Experience</h3>
+                <h3 className="text-xl font-serif font-medium mb-2">{t.experienceHeadline}</h3>
                 <p className="text-muted-foreground mb-4">
-                  Teaching experiences across various countries and centers.
+                  {t.experienceDesc}
                 </p>
               </CardContent>
             </Card>
           </div>
-          
           <div className="text-center mt-10">
             <Link to="/experience" onClick={handleViewFullExperience}>
               <Button className="bg-white text-yoga-500 hover:bg-yoga-50">
-                View Full Experience
+                {t.viewFullExperience}
               </Button>
             </Link>
           </div>
         </div>
       </section>
-
-      {/* Booking CTA */}
-      {/*
-      <section className="section-padding bg-white">
-        <div className="container">
-          <div className="bg-yoga-100 rounded-xl p-8 md:p-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-serif font-medium mb-4">
-                Ready to Begin Your Yoga Journey?
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                Request access to join Camille's exclusive sessions and start your yoga journey today.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/access-request">
-                  <Button className="bg-yoga-500 hover:bg-yoga-600 text-white">
-                    Request Access
-                  </Button>
-                </Link>
-                <Link to="/login">
-                  <Button variant="outline" className="border-yoga-300 text-yoga-500 hover:bg-yoga-100">
-                    Member Login
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
     </div>
   );
 };

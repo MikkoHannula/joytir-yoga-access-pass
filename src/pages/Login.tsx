@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -31,6 +32,27 @@ const formSchema = z.object({
     message: "Password must be at least 6 characters.",
   }),
 });
+
+const translations = {
+  en: {
+    title: "Login",
+    email: "Email",
+    password: "Password",
+    login: "Login",
+    forgot: "Forgot password?",
+    noAccount: "Don't have an account?",
+    signup: "Sign up",
+  },
+  fr: {
+    title: "Connexion",
+    email: "E-mail",
+    password: "Mot de passe",
+    login: "Connexion",
+    forgot: "Mot de passe oublié ?",
+    noAccount: "Pas de compte ?",
+    signup: "S'inscrire",
+  },
+};
 
 const Login = () => {
   const { toast } = useToast();
@@ -45,6 +67,9 @@ const Login = () => {
       password: "",
     },
   });
+
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
@@ -82,7 +107,7 @@ const Login = () => {
           <Card>
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl font-serif text-center text-emerald-400">
-                Welcome back
+                {t.title}
               </CardTitle>
               <CardDescription className="text-center text-emerald-400">
                 Enter your credentials to access your account
@@ -99,7 +124,7 @@ const Login = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{t.email}</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Your email address"
@@ -117,7 +142,7 @@ const Login = () => {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>{t.password}</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Input
@@ -181,7 +206,7 @@ const Login = () => {
                     className="w-full bg-yoga-500 hover:bg-yoga-600"
                     disabled={isLoading}
                   >
-                    {isLoading ? "Logging in..." : "Sign In"}
+                    {isLoading ? "Logging in..." : t.login}
                   </Button>
                 </form>
               </Form>
@@ -191,18 +216,18 @@ const Login = () => {
                   to="#"
                   className="text-yoga-500 hover:underline"
                 >
-                  Forgot your password?
+                  {t.forgot}
                 </Link>
               </div>
             </CardContent>
             <CardFooter className="flex justify-center">
               <p className="text-sm text-muted-foreground">
-                Don't have an account?{" "}
+                {t.noAccount}{" "}
                 <Link
                   to="/access-request"
                   className="text-yoga-500 hover:underline"
                 >
-                  Request access
+                  {t.signup}
                 </Link>
               </p>
             </CardFooter>

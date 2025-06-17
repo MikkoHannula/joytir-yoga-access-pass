@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -43,10 +44,45 @@ const formSchema = z.object({
   }),
 });
 
+const translations = {
+  en: {
+    title: "Request Access",
+    subtitle:
+      "Fill out the form below to request access to exclusive classes.",
+    name: "Name",
+    email: "Email",
+    phone: "Phone Number",
+    experience: "Yoga Experience",
+    reason: "Why do you want to practice yoga?",
+    submit: "Submit Request",
+    success:
+      "Your request has been sent! Camille will review it and respond soon.",
+    description:
+      "All fields are required. You'll receive a response within 48 hours.",
+  },
+  fr: {
+    title: "Demander l'accès",
+    subtitle:
+      "Remplissez le formulaire ci-dessous pour demander l'accès aux cours exclusifs.",
+    name: "Nom",
+    email: "E-mail",
+    phone: "Numéro de téléphone",
+    experience: "Expérience en yoga",
+    reason: "Pourquoi voulez-vous pratiquer le yoga ?",
+    submit: "Envoyer la demande",
+    success:
+      "Votre demande a été envoyée ! Camille l'examinera et vous répondra bientôt.",
+    description:
+      "Tous les champs sont obligatoires. Vous recevrez une réponse dans les 48 heures.",
+  },
+};
+
 const AccessRequest = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language] || translations.en;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -61,17 +97,18 @@ const AccessRequest = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    
+
     // Simulate API request
     setTimeout(() => {
       console.log(values);
       setIsSubmitting(false);
-      
+
       toast({
-        title: "Request Submitted",
-        description: "Camille will review your request and contact you soon.",
+        title: t.success,
+        description:
+          "Camille will review your request and contact you soon.",
       });
-      
+
       navigate("/request-confirmation");
     }, 1500);
   }
@@ -82,20 +119,17 @@ const AccessRequest = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-serif font-medium mb-4 text-emerald-400">
-              Request Access
+              {t.title}
             </h1>
-            <p className="text-muted-foreground">
-              Fill out the form below to request access to Joytir Yoga's exclusive sessions.
-              Camille personally reviews all requests to ensure a good fit for her teaching style.
-            </p>
+            <p className="text-muted-foreground">{t.subtitle}</p>
           </div>
-          
+
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl font-serif font-medium text-emerald-400">Membership Access Request</CardTitle>
-              <CardDescription>
-                All fields are required. You'll receive a response within 48 hours.
-              </CardDescription>
+              <CardTitle className="text-xl font-serif font-medium text-emerald-400">
+                {t.title}
+              </CardTitle>
+              <CardDescription>{t.description}</CardDescription>
             </CardHeader>
             <CardContent>
               <Form {...form}>
@@ -106,7 +140,7 @@ const AccessRequest = () => {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Full Name</FormLabel>
+                          <FormLabel>{t.name}</FormLabel>
                           <FormControl>
                             <Input placeholder="Your name" {...field} />
                           </FormControl>
@@ -114,13 +148,13 @@ const AccessRequest = () => {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Work Email Address</FormLabel>
+                          <FormLabel>{t.email}</FormLabel>
                           <FormControl>
                             <Input placeholder="Your email" type="email" {...field} />
                           </FormControl>
@@ -129,14 +163,14 @@ const AccessRequest = () => {
                       )}
                     />
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number</FormLabel>
+                          <FormLabel>{t.phone}</FormLabel>
                           <FormControl>
                             <Input placeholder="Your phone number" {...field} />
                           </FormControl>
@@ -144,23 +178,44 @@ const AccessRequest = () => {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="experience"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Yoga Experience</FormLabel>
+                          <FormLabel>{t.experience}</FormLabel>
                           <FormControl>
                             <select
                               className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                               {...field}
                             >
-                              <option value="">Select your experience level</option>
-                              <option value="beginner">Beginner (0-1 years)</option>
-                              <option value="intermediate">Intermediate (1-3 years)</option>
-                              <option value="advanced">Advanced (3+ years)</option>
-                              <option value="teacher">Yoga Teacher</option>
+                              <option value="">
+                                {t.experience}{" "}
+                                {language === "fr"
+                                  ? "(Débutant, Intermédiaire, Avancé, Professeur)"
+                                  : "(Beginner, Intermediate, Advanced, Teacher)"}
+                              </option>
+                              <option value="beginner">
+                                {language === "fr"
+                                  ? "Débutant (0-1 an)"
+                                  : "Beginner (0-1 years)"}
+                              </option>
+                              <option value="intermediate">
+                                {language === "fr"
+                                  ? "Intermédiaire (1-3 ans)"
+                                  : "Intermediate (1-3 years)"}
+                              </option>
+                              <option value="advanced">
+                                {language === "fr"
+                                  ? "Avancé (3+ ans)"
+                                  : "Advanced (3+ years)"}
+                              </option>
+                              <option value="teacher">
+                                {language === "fr"
+                                  ? "Professeur de yoga"
+                                  : "Yoga Teacher"}
+                              </option>
                             </select>
                           </FormControl>
                           <FormMessage />
@@ -168,30 +223,36 @@ const AccessRequest = () => {
                       )}
                     />
                   </div>
-                  
+
                   <FormField
                     control={form.control}
                     name="reason"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Why do you want to practice yoga?</FormLabel>
+                        <FormLabel>{t.reason}</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Tell us about your yoga journey and what you hope to gain from Camille's classes..." 
+                          <Textarea
+                            placeholder="Tell us about your yoga journey and what you hope to gain from Camille's classes..."
                             className="min-h-[120px]"
-                            {...field} 
+                            {...field}
                           />
                         </FormControl>
                         <FormDescription>
-                          This helps Camille understand your goals and how she can best support your practice.
+                          {language === "fr"
+                            ? "Cela aide Camille à comprendre vos objectifs et comment elle peut mieux soutenir votre pratique."
+                            : "This helps Camille understand your goals and how she can best support your practice."}
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  
-                  <Button type="submit" className="w-full bg-yoga-500 hover:bg-yoga-600" disabled={isSubmitting}>
-                    {isSubmitting ? "Submitting..." : "Submit Request"}
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-yoga-500 hover:bg-yoga-600"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : t.submit}
                   </Button>
                 </form>
               </Form>

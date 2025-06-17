@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,31 +13,34 @@ import AccessRequest from "./pages/AccessRequest";
 import RequestConfirmation from "./pages/RequestConfirmation";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/biography" element={<Biography />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/booking" element={<Booking />} />
-            <Route path="/virtual-classes" element={<VirtualClasses />} />
-            <Route path="/access-request" element={<AccessRequest />} />
-            <Route path="/request-confirmation" element={<RequestConfirmation />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <LanguageProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/biography" element={<Biography />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/booking" element={<Booking />} />
+              <Route path="/virtual-classes" element={<VirtualClasses />} />
+              <Route path="/access-request" element={<AccessRequest />} />
+              <Route path="/request-confirmation" element={<RequestConfirmation />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </LanguageProvider>
 );
 
 export default App;
