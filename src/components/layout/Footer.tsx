@@ -84,7 +84,7 @@ const Footer = () => {
             <img src="/joytir-yoga.png" alt="Joytir Yoga Logo" className="h-72 w-72 object-contain rounded-full bg-background p-2 shadow-lg mx-auto" />
           </div>
 
-          {/* Contact Info - phone and email each on their own row, both with icons, perfectly left-aligned like quick links */}
+          {/* Contact Info - phone and email each on their own row, both with icons */}
           <div className="flex flex-col items-start justify-center w-full">
             <h4 className="text-lg font-semibold mb-3 text-emerald-400">{t.contact}</h4>
             <div className="flex flex-col items-start w-full gap-2">
