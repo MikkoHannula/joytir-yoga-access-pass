@@ -49,10 +49,10 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="font-serif text-2xl font-bold text-emerald-400 drop-shadow-sm">Joytir</div>
-            <div className="text-xl font-light text-emerald-700 drop-shadow-sm">Yoga</div>
-          </Link>
+          {/* Remove logo from header */}
+          {/* <img src="/joytir-yoga.png" alt="Joytir Yoga Logo" className="h-8 w-8 object-contain rounded-full bg-background p-1 shadow" /> */}
+          <div className="font-serif text-2xl font-bold text-emerald-400 drop-shadow-sm">Joytir</div>
+          <div className="text-xl font-light text-emerald-700 drop-shadow-sm">Yoga</div>
         </div>
         
         {/* Desktop Navigation */}
