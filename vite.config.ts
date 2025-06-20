@@ -2,10 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// Tämä tiedosto määrittelee Vite-konfiguraation
+//Vite-configuration
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "localhost", // Vaihdettu localhostiin, jotta toimii paikallisesti
+    host: "localhost", // Localhost for development
     port: 8080,
   },
   plugins: [
