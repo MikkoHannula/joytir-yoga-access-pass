@@ -1,10 +1,8 @@
 // Booking.tsx
 // -------------------
 // Yoga class booking page (currently disabled in navigation).
-// - All visible text and class data is bilingual and switches with the global language context.
-// - To update class info, edit the translations object.
+// - All visible text and class data is bilingual and switches with press of a button.
 // - To re-enable, uncomment the export and navigation links in index.ts, Header.tsx, and Footer.tsx.
-//
 // For navigation, see Header.tsx.
 
 import { useState } from "react";
