@@ -1,9 +1,9 @@
 // VirtualClasses.tsx
 // -------------------
 // Virtual yoga classes page (currently disabled in navigation).
-// - All visible text and class data is bilingual and switches with the global language context.
+// - All visible text and class data is bilingual and switches with the press of a button.
 //
-// - To re-enable, uncomment the export and navigation links in index.ts, Header.tsx, and Footer.tsx.
+// To re-enable, uncomment the export and navigation links in index.ts, Header.tsx, and Footer.tsx.
 //
 // For navigation, see Header.tsx.
 
@@ -185,7 +185,7 @@ const VirtualClasses = () => {
           </div>
         </div>
 
-        {/* Premium Classes */}
+        {/*Dummy Premium Classes  */}
         <div>
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-serif">{t.premium}</h2>
@@ -242,7 +242,7 @@ const VirtualClasses = () => {
               </DialogHeader>
               
               <div className="aspect-video bg-black rounded-md flex items-center justify-center">
-                {/* In a real app, replace this with an actual video player */}
+                {/* When making the final version, replace with a video player */}
                 <div className="text-center">
                   <Play className="h-16 w-16 text-white/70 mx-auto mb-4" />
                   <p className="text-white">Video player would be embedded here</p>

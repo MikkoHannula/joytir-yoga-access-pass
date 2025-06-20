@@ -5,12 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // Footer.tsx
 // -------------------
 // Main site footer with quick links, contact info, and language switcher.
-// - Uses LanguageContext for bilingual quick links and language switcher.
-// - To add/remove quick links, update the quickLinks object.
-// - Language switcher buttons update the global language instantly.
 // - Quick links are commented out for disabled pages (Booking, Virtual Classes).
-//
-// For contact info or social links, update the relevant sections below.
 
 const translations = {
   en: {

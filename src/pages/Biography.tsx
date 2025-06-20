@@ -105,7 +105,7 @@ const Biography = () => {
                 <div className="relative mb-6">
                   <div className="absolute -top-3 -right-3 w-24 h-24 bg-yoga-200 rounded-full opacity-50 animate-float" />
                   <img 
-                    src="/Yoga front.jpg" 
+                    src="/yoga-front.jpg" 
                     alt="Camille Cussaguet" 
                     className="relative z-10 rounded-lg shadow-lg w-full"
                   />

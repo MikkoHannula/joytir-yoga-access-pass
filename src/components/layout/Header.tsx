@@ -2,11 +2,7 @@
 // -------------------
 // Main site header and navigation bar.
 // - Uses LanguageContext for bilingual navigation and language switcher.
-// - To add/remove navigation links, update the navLinks object.
-// - Language switcher buttons update the global language instantly.
 // - Navigation links are commented out for disabled pages (Booking, Virtual Classes).
-//
-// For logo and branding, update the header section.
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
