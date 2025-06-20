@@ -68,7 +68,7 @@ const Biography = () => {
             <h1 className="text-3xl md:text-5xl font-serif font-medium mb-0.5 text-emerald-400">
               {t.heroTitle}
             </h1>
-            <p className="text-lg text-muted-foreground mb-0.5">
+            <p className="text-lg text-yoga-900 mb-0.5">
               {t.heroSubtitle}
             </p>
           </div>

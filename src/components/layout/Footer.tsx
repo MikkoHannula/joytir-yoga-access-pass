@@ -90,7 +90,7 @@ const Footer = () => {
             <div className="flex flex-col items-start w-full gap-2">
               <div className="flex items-center gap-2 whitespace-nowrap">
                 <Phone className="h-4 w-4 text-yoga-500" />
-                <span className="text-muted-foreground">{t.phone} +33 6 12 34 56 78</span>
+                <span className="text-muted-foreground">{t.phone} +33 643210707</span>
               </div>
               <div className="flex items-center gap-2 whitespace-nowrap">
                 <Mail className="h-4 w-4 text-yoga-500" />
