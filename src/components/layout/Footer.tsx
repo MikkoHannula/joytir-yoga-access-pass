@@ -67,7 +67,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-5xl px-4">
         {/* 4-column grid, logo spans 2 columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center md:text-left items-center">
-          {/* Quick Links - restore original alignment and reduce right margin */}
+          {/* Quick Links */}
           <div className="flex flex-col items-center md:items-start justify-center md:mr-0">
             <h4 className="text-lg font-semibold mb-3 text-emerald-400">{t.quickLinks}</h4>
             <nav className="flex flex-col gap-2">
