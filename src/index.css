@@ -2,14 +2,7 @@
   index.css
   -------------------
   This file contains all global styles for the Joytir Yoga website.
-  - Uses Tailwind CSS for utility classes and custom theming.
-  - Custom properties (CSS variables) define the color palette and layout for both light and dark modes.
-  - Responsive container and section padding classes are defined for layout consistency.
-  - Utility classes for grid, flex, and text alignment are included for easy layout management.
-  - To change the color theme, update the :root and .dark variable blocks.
-  - To adjust container widths or breakpoints, edit the @media queries for .container.
-  - To add or modify custom utility classes, use @layer base and add your styles below.
-  - All images and videos are set to be responsive by default.
+  - All images and videos are set to be responsive.
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
@@ -106,8 +99,6 @@
   /*
     Global element resets and base styles
     - All elements use border color from theme
-    - Body uses background and text color from theme
-    - Headings use serif font
   */
   * {
     @apply border-border;
@@ -163,7 +154,7 @@
 
   /*
     Responsive image and video styles
-    - Ensures all media is fluid and never overflows its container
+    - Ensures all media is fluid. No overflow
   */
   img, video {
     max-width: 100%;
@@ -174,7 +165,7 @@
   /*
     Yoga card component styles
     - class and content cards throughout the site
-    - hover effect for elevation
+    - hover effect
   */
   .yoga-card {
     background-color: #fff;
